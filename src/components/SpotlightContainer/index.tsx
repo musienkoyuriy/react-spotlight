@@ -10,9 +10,10 @@ const SpotlightContainer = () => {
         e.preventDefault();
 
         if (e.ctrlKey && e.key === 'f') {
-            setIsActive(!isActive);
+            setIsActive(isActive => !isActive);
         }
-    }, [isActive, setIsActive])
+    }, [setIsActive]);
+
     useEventListener('keyup', onKeyPressHandler)
 
     const content = isActive ? <Spotlight /> : <div>no spotlight</div>

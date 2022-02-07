@@ -18,5 +18,7 @@ export default function useEventListener(eventName: string, handler: Function, e
         }
 
         element.addEventListener(eventName, eventListener);
-    }, [eventName, handler, element]);
+
+        return () => element.removeEventListener(eventName, eventListener)
+    }, [eventName, savedHandler, element]);
 }
