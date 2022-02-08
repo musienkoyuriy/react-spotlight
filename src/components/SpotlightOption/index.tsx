@@ -6,14 +6,14 @@ const Option = styled.div`
     padding: 10px;
     border: 1px solid #ccc;
     transition: all .3s;
-    background: ${props => props.isFocused ? "#ccc": "none"};
+    background: ${props => props.isFocused ? "#ccc" : "none"};
     :hover {
         background: #ccc;
     }
     .version {
         color: grey;
     }
-`
+`;
 
 export const SpotlightCustomOption = ({ innerProps, isFocused, data }) => {
     const { author, name, version } = data;

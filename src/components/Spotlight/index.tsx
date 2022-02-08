@@ -6,6 +6,7 @@ import { categoryOptions, SearchCategory } from '../../constants/search-categori
 import { CategoryOption, NpmOption } from '../../shared/interfaces/category';
 import useEventListener from '../../hooks/useEventListener';
 import { SpotlightCustomOption } from '../SpotlightOption';
+import { customStyles } from './styles';
 
 
 interface SelectState {
@@ -103,6 +104,7 @@ function Spotlight({ onEscape }) {
                     <Select options={categoryOptions}
                         onChange={onCategoryChange}
                         menuIsOpen={true}
+                        styles={customStyles}
                         autoFocus={true} /> :
                     <AsyncSelect
                         cacheOptions
@@ -112,6 +114,7 @@ function Spotlight({ onEscape }) {
                         onInputChange={handleInputChange}
                         onMenuScrollToBottom={handleScrollToBottom}
                         onChange={onSelectPackage}
+                        styles={customStyles}
                         components={{ Option: SpotlightCustomOption }}
                         autoFocus={true} />
             }

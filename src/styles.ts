@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-     padding: 30px 30%;
-    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px
 `;
 
 export const Button = styled.button`

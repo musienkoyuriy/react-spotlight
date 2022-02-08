@@ -1,7 +1,15 @@
 import { useCallback, useState } from 'react';
+import styled from 'styled-components';
 import Spotlight from '../Spotlight';
 import useEventListener from '../../hooks/useEventListener';
 import { Container } from '../../styles';
+
+const Title = styled.div`
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+`;
 
 const SpotlightContainer = () => {
     const [isActive, setIsActive] = useState(false)
@@ -20,10 +28,16 @@ const SpotlightContainer = () => {
         setIsActive(false);
     }, []);
 
-    const content = isActive ? <Spotlight onEscape={onEscapeHandler}/> : <div>no spotlight</div>
-
     return (
-        <Container>{content}</Container>
+        <Container>
+            {
+                isActive ?
+                    <Spotlight onEscape={onEscapeHandler} /> :
+                    <Title>
+                        <p>Press Ctrl+F to trigger the spotlight</p>
+                    </Title>
+            }
+        </Container>
     );
 }
 
