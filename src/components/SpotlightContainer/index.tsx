@@ -14,9 +14,13 @@ const SpotlightContainer = () => {
         }
     }, [setIsActive]);
 
-    useEventListener('keyup', onKeyPressHandler)
+    useEventListener('keyup', onKeyPressHandler);
 
-    const content = isActive ? <Spotlight /> : <div>no spotlight</div>
+    const onEscapeHandler = useCallback(() => {
+        setIsActive(false);
+    }, []);
+
+    const content = isActive ? <Spotlight onEscape={onEscapeHandler}/> : <div>no spotlight</div>
 
     return (
         <Container>{content}</Container>
